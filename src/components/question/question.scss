@@ -1,0 +1,25 @@
+$purple-primary: #5714ac;
+
+#question{
+  display: flex;
+  align-items: center;
+
+  .user-icon{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: $purple-primary;
+    margin-right: 0.8rem;
+  }
+
+  .question-container{
+    width: fit-content;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5rem;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.16);
+    p{
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+$purple-primary: #5714ac;
+
+.option-inactive{
+  margin-top: 1rem;
+  margin-right: 0.8rem;
+  width: fit-content;
+  background-color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 5rem;
+  box-shadow: 2px 2px 6px rgba(0,0,0,.16);
+  border: 1px solid $purple-primary;
+  color: $purple-primary;
+  cursor: pointer;
+
+  &:hover, &:active, &:focus{
+    background-color: $purple-primary;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  p{
+    margin-bottom: 0;
+  }
+}
+
+.option-active{
+  margin-top: 1rem;
+  margin-right: 0.8rem;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  border-radius: 5rem;
+  box-shadow: 2px 2px 6px rgba(0,0,0,.16);
+  border: 1px solid $purple-primary;
+  cursor: pointer;
+  background-color: $purple-primary;
+  color: #fff;
+  font-weight: bold;
+
+  p{
+    margin-bottom: 0;
+  }
+}

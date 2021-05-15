@@ -110,17 +110,32 @@ class InspirationsTool extends React.Component{
           this.state.selected_option && (
             <div className="gallery">
               <div className="image-column">
-                {this.state.to_display_images.slice(0,10).map((img, index)=>(
+                {this.state.to_display_images.slice(0,5).map((img, index)=>(
                   <img src={img.src} alt="search" key={index}></img>
                 ))}
               </div>
               <div className="image-column">
-                {this.state.to_display_images.slice(10,20).map((img, index)=>(
+                {this.state.to_display_images.slice(5,10).map((img, index)=>(
                   <img src={img.src} alt="search" key={index}></img>
                 ))}
               </div>
               <div className="image-column">
-                {this.state.to_display_images.slice(20,30).map((img, index)=>(
+                {this.state.to_display_images.slice(10,15).map((img, index)=>(
+                  <img src={img.src} alt="search" key={index}></img>
+                ))}
+              </div>
+              <div className="image-column">
+                {this.state.to_display_images.slice(15,20).map((img, index)=>(
+                  <img src={img.src} alt="search" key={index}></img>
+                ))}
+              </div>
+              <div className="image-column">
+                {this.state.to_display_images.slice(20,25).map((img, index)=>(
+                  <img src={img.src} alt="search" key={index}></img>
+                ))}
+              </div>
+              <div className="image-column">
+                {this.state.to_display_images.slice(25,30).map((img, index)=>(
                   <img src={img.src} alt="search" key={index}></img>
                 ))}
               </div>

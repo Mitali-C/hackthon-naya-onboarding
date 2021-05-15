@@ -1,5 +1,6 @@
 import React from 'react';
 import {FormControl, Dropdown, InputGroup} from 'react-bootstrap';
+import Cube from './cube/Cube';
 import {data} from './data';
 import './standard-dimensions.scss';
 
@@ -103,12 +104,32 @@ class StandardDimensions extends React.Component{
   render(){
     return(
       <div id="standard">
-        <div className="standard-dimensions-container">
-          <p>Search for standard dimensions</p>
-          {this.renderDropDown()}
-        </div>
-        <div>
+        {
+          this.props.type==='standard' && (
+            <div className="standard-dimensions-container">
+              <p>Search for standard dimensions</p>
+              {this.renderDropDown()}
+            </div>
+          )
+        }
+        {
+          this.props.type==='intermediate' && (
+            <>
+            <p>You can use the following app to calculate the exact dimensions of your space and then fill those calculated numbers here!</p>
+            <ul>
+              <li>
+                <a href="https://play.google.com/store/apps/details?id=com.grymala.photoruler&hl=en_IN&gl=US" target="_blank" rel="noopener noreferrer">For Android</a>
+              </li>
+              <li>
+                <a href="https://apps.apple.com/us/app/tape-measure/id1271546805" target="_blank" rel="noopener noreferrer">For Iphone</a>
+              </li>
+            </ul>
+            </>
+          )
+        }
+        <div style={{display:'flex', flexWrap:'wrap'}}>
           {this.renderDimensions()}
+          <Cube width={this.state.width}  height={this.state.height} depth={this.state.depth}></Cube>
         </div>
       </div>
     )

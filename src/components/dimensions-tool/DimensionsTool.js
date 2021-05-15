@@ -21,15 +21,15 @@ class DimensionsTool extends React.Component{
     switch(this.state.selected){
       case '1':
         return(
-          <StandardDimensions></StandardDimensions>
+          <StandardDimensions type="standard"></StandardDimensions>
         )
       case '2':
         return(
-          <div>2</div>
+          <StandardDimensions type="intermediate"></StandardDimensions>
         )
       case '3':
         return(
-          <div>3</div>
+          <StandardDimensions type="advanced"></StandardDimensions>
         )
       default:
         break;

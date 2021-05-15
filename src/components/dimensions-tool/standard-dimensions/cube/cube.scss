@@ -1,0 +1,257 @@
+// @keyframes turn {
+//   from { transform: rotate3d(0, 0, 0, 0); }
+//   to { transform: rotate3d(1, 1, 0, 360deg); }
+// }
+
+// .cube-container {
+//   width: 200px;
+//   height: 200px;
+//   perspective: 500px;
+//   margin: 100px;
+// }
+
+// .cube {
+//   position: relative;
+//   width: 200px;
+//   height: 200px;
+//   transform-style: preserve-3d;
+//   transform: rotate3d(1, 1, 0, -30deg);
+//   // animation: turn 5s linear infinite;
+// }
+
+// .face {
+//   width: 200px;
+//   height: 200px;
+//   background: skyblue;
+//   border: 2px solid black;
+//   position: absolute;
+//   opacity: 0.5;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-family: Arial, sans-serif;
+//   font-size: 2rem;
+//   transition: transform 500ms;
+// }
+
+// .front {
+//   transform: translateZ(100px);
+// }
+
+// .back {
+//   transform: translateZ(-100px) rotateY(180deg);
+// }
+
+// .left {
+//   transform: translateX(-100px) rotateY(-90deg);
+// }
+
+// .right {
+//   transform: translateX(100px) rotateY(90deg);
+// }
+
+// .top {
+//   transform: translateY(-100px) rotateX(90deg);
+// }
+
+// .bottom {
+//   transform: translateY(100px) rotateX(-90deg);
+// }
+
+// @media (prefers-reduced-motion: reduce) {
+//   .cube {
+//     animation: none;
+//     transform: rotate3d(1, 1, 0, 45deg);
+//   }
+// }
+
+
+// ----------------------
+
+// $width:200px;
+// $height:100px;
+// $depth:200px;
+
+// .scene {
+//   width: 300px;
+//   height: 200px;
+//   border: 1px solid #CCC;
+//   margin: 80px;
+//   perspective: 400px;
+// }
+
+// .box {
+//   // width: 300px;
+//   // height: 200px;
+//   width: $width;
+//   height: $height;
+//   position: relative;
+//   transform-style: preserve-3d;
+//   // transform: translateZ(-50px);
+//   transform: rotate3d(1, 1, 0, -60deg);
+//   transition: transform 1s;
+
+// }
+
+// .box.show-front  { transform: translateZ( -50px) rotateY(   0deg); }
+// .box.show-back   { transform: translateZ( -50px) rotateY(-180deg); }
+// .box.show-right  { transform: translateZ(-150px) rotateY( -90deg); }
+// .box.show-left   { transform: translateZ(-150px) rotateY(  90deg); }
+// .box.show-top    { transform: translateZ(-100px) rotateX( -90deg); }
+// .box.show-bottom { transform: translateZ(-100px) rotateX(  90deg); }
+
+
+// .box__face {
+//   position: absolute;
+//   border: 2px solid black;
+//   font-size: 40px;
+//   font-weight: bold;
+//   color: white;
+//   text-align: center;
+// }
+
+// .box__face--front,
+// .box__face--back {
+//   // width: 300px;
+//   // height: 200px;
+//   // line-height: 200px;
+//   width: $width;
+//   height: $height;
+//   line-height: 200px;
+//   // line-height: $height;
+// }
+
+// .box__face--right,
+// .box__face--left {
+//   // width: 100px;
+//   // height: 200px;
+//   // left: 100px;
+//   // line-height: 200px;
+
+//   width: $depth;
+//   height: $height;
+//   left: $depth;
+//   line-height: $height;
+// }
+
+// .box__face--top,
+// .box__face--bottom {
+//   // width: 300px;
+//   // height: 100px;
+//   // top: 50px;
+//   // line-height: 100px;
+
+//   width: $width;
+//   height: $depth;
+//   line-height: $depth;
+//   top: 50px;
+// }
+
+// .box__face--front  { background: hsla(  0, 100%, 50%, 0.7); }
+// .box__face--right  { background: hsla( 60, 100%, 50%, 0.7); }
+// .box__face--back   { background: hsla(120, 100%, 50%, 0.7); }
+// .box__face--left   { background: hsla(180, 100%, 50%, 0.7); }
+// .box__face--top    { background: hsla(240, 100%, 50%, 0.7); }
+// .box__face--bottom { background: hsla(300, 100%, 50%, 0.7); }
+
+// // .box__face--front  { transform: rotateY(  0deg) translateZ( 50px); }
+// // .box__face--back   { transform: rotateY(180deg) translateZ( 50px); }
+
+// // .box__face--right  { transform: rotateY( 90deg) translateZ(150px); }
+// // .box__face--left   { transform: rotateY(-90deg) translateZ(150px); }
+
+// // .box__face--top    { transform: rotateX( 90deg) translateZ(100px); }
+// // .box__face--bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+
+// .box__face--front  { transform: rotateY(  0deg) translateZ(75px) }
+// .box__face--back   { transform: rotateY(180deg) translateZ(75px) }
+
+// .box__face--right  { transform: rotateY( 90deg) translateZ(-225px) }
+// .box__face--left   { transform: rotateY(-90deg) translateZ(25px)  }
+
+// .box__face--top    { transform: rotateX( 90deg)  translateZ(125px) }
+// .box__face--bottom { transform: rotateX(-90deg) translateZ(-25px) }
+
+// // label { margin-right: 10px; }
+
+// ----------------------
+
+.base,
+.base * {
+  transform-style: preserve-3d;
+}
+
+.base {
+  height: var(--height);
+  width: var(--width);
+  margin: 100px;
+  position: relative;
+  border: solid 1px blue;
+  // transform: rotate3d(1, 1, 1, 45deg);
+  transform: rotate3d(1, 1, 0, -30deg);
+}
+
+.top {
+  height: var(--depth);
+  width: 100%;
+  bottom: 100%;
+  position: absolute;
+  background-color: rgba(255, 0, 0, 0.4);
+  transform: translateY(50%) rotateX(90deg);
+}
+
+.down {
+  height: var(--depth);
+  width: 100%;
+  top: 100%;
+  position: absolute;
+  background-color: rgba(0, 255, 0, 0.4);
+  transform: translateY(-50%) rotateX(90deg);
+}
+
+.right {
+  width: var(--depth);
+  height: 100%;
+  left: 100%;
+  position: absolute;
+  background-color: rgba(128, 128, 0, 0.4);
+  transform: translateX(-50%) rotateY(90deg);
+}
+
+.left {
+  width: var(--depth);
+  height: 100%;
+  right: 100%;
+  position: absolute;
+  background-color: rgba(128, 0, 128, 0.4);
+  transform: translateX(50%) rotateY(90deg);
+}
+
+.aux {
+  width: 100%;
+  height: var(--depth);
+  border: solid 2px red;
+  position: absolute;
+  transform: translateY(-50%) rotateX(-90deg);
+}
+
+.front {
+  height: var(--height);
+  width: 100%;
+  top: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 255, 0.4);
+  transform: rotateX(90deg);
+  transform-origin: center top;
+}
+
+.back {
+  height: var(--height);
+  width: 100%;
+  bottom: 100%;
+  position: absolute;
+  background-color: rgba(0, 128, 128, 0.4);
+  transform: rotateX(-90deg);
+  transform-origin: center bottom;
+}

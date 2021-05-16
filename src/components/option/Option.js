@@ -5,7 +5,7 @@ class Option extends React.Component{
   
   render(){
     return(
-      <div className={`option-${this.props.selected ? 'active' : 'inactive'}`} onClick={()=>this.props.selectOption(this.props.data.id)}>
+      <div className={`option-${this.props.selected ? 'active' : 'inactive'}`} onClick={()=>this.props.selectOption(this.props.data.text)}>
         <p>{this.props.data.text}</p>
       </div>
     )

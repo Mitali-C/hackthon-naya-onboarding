@@ -6,33 +6,59 @@ import Option from '../option/Option';
 import './dimensions-tool.scss';
 import StandardDimensions from './standard-dimensions/StandardDimensions';
 
+const help = {
+  d:'1',
+  question:'What would you like to do?',
+  type:'dimensions',
+  options:[
+    {
+      text:'Measure your space',
+      id:'1'
+    },
+    {
+      text:'Search standard dimensions',
+      id:'2'
+    },
+    // {
+    //   text:'I know the exact dimensions',
+    //   id:'3'
+    // },
+  ]
+}
+
 class DimensionsTool extends React.Component{
   state = {
-    selected:null
+    selected1:null,
+    selected2:null,
   }
   componentDidMount(){
   }
 
-  selectOption = (id) => {
-    this.setState({selected:id})
+  selectOption1 = (text) => {
+    this.setState({selected1:text})
+  }
+
+  selectOption2 = (text) => {
+    this.setState({selected2:text})
   }
 
   renderDataAsPerSelection = () => {
-    switch(this.state.selected){
-      case '1':
-        return(
-          <StandardDimensions type="standard"></StandardDimensions>
-        )
-      case '2':
-        return(
-          <StandardDimensions type="intermediate"></StandardDimensions>
-        )
-      case '3':
-        return(
-          <StandardDimensions type="advanced"></StandardDimensions>
-        )
-      default:
-        break;
+    if(this.state.selected1==='Add'){
+      return <StandardDimensions type="add"></StandardDimensions>
+    }
+    else{
+      switch(this.state.selected2){
+        case 'Search standard dimensions':
+          return(
+            <StandardDimensions type="standard"></StandardDimensions>
+          )
+        case 'Measure your space':
+          return(
+            <StandardDimensions type="advanced"></StandardDimensions>
+          )
+        default:
+          break;
+      }
     }
   }
 
@@ -43,10 +69,24 @@ class DimensionsTool extends React.Component{
         <div className="options-container">
         {
           data.options.map((option, index) => (
-            <Option key={index} data={option} selectOption={this.selectOption} selected={this.state.selected===option.id}></Option>
+            <Option key={index} data={option} selectOption={this.selectOption1} selected={this.state.selected1===option.text}></Option>
           ))
         }
         </div>
+        {
+          this.state.selected1==='Help me decide' && (
+            <>
+              <Question question={help.question}></Question>
+              <div className="options-container">
+              {
+                help.options.map((option, index) => (
+                  <Option key={index} data={option} selectOption={this.selectOption2} selected={this.state.selected2===option.text}></Option>
+                ))
+              }
+              </div>
+            </>
+          )
+        }
         <div>
           {
             this.renderDataAsPerSelection()

@@ -2,6 +2,7 @@ import React from 'react';
 import {FormControl, Dropdown, InputGroup} from 'react-bootstrap';
 import Cube from './cube/Cube';
 import {data} from './data';
+import open from '../../../assets/icons/open.png';
 import './standard-dimensions.scss';
 
 class StandardDimensions extends React.Component{
@@ -127,10 +128,22 @@ class StandardDimensions extends React.Component{
             </>
           )
         }
-        <div style={{display:'flex', flexWrap:'wrap'}}>
-          {this.renderDimensions()}
-          <Cube width={this.state.width}  height={this.state.height} depth={this.state.depth}></Cube>
-        </div>
+        {
+          this.props.type === 'advanced' ? (
+            <div style={{display:'flex', justifyContent:'center'}}>
+              <a style={{display:'flex', alignItems:'center', flexDirection:'column'}} href="https://apps.apple.com/us/app/tape-measure/id1271546805" target="_blank" rel="noopener noreferrer">
+                <img src={open} alt="open link" style={{width:'4rem'}}></img>
+                <h6>Send link to mobile app</h6>
+              </a>
+            </div>
+
+          ) : (
+            <div style={{display:'flex', flexWrap:'wrap'}}>
+              {this.renderDimensions()}
+              <Cube width={this.state.width}  height={this.state.height} depth={this.state.depth}></Cube>
+            </div>
+          )
+        }
       </div>
     )
   }

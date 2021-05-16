@@ -1,0 +1,15 @@
+.navbar{
+	background: transparent;
+	background-color: transparent!important;
+
+	.active{
+		color: #5714ac!important;
+		// font-weight: bold;
+		border-bottom: 1px solid #5714ac;
+	}
+}
+
+.navbar-brand{
+	font-weight: bold;
+	color: #5714ac!important;
+}

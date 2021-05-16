@@ -20,7 +20,7 @@ const navs = [
 
 class Home extends React.Component{
   state = {
-    selected_slide:'Dimensions Tool'
+    selected_slide:'Idea'
   }
   renderNavigators = () => {
     return(

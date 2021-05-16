@@ -1,20 +1,20 @@
 const data = {
   id:'1',
-  question:'What are the dimensions of your piece?',
+  question:'Do you have dimensions in mind?',
   type:'dimensions',
   options:[
     {
-      text:'I have no idea',
+      text:'Add',
       id:'1'
     },
     {
-      text:'I know the space it is going in',
+      text:'Help me decide',
       id:'2'
     },
-    {
-      text:'I know the exact dimensions',
-      id:'3'
-    },
+    // {
+    //   text:'I know the exact dimensions',
+    //   id:'3'
+    // },
   ]
 }
 

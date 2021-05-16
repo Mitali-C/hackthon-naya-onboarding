@@ -1,97 +1,82 @@
 import React from 'react';
 import Question from '../question/Question';
-import {Container} from 'react-bootstrap';
+import {Container, Modal, InputGroup, FormControl, Button} from 'react-bootstrap';
 import {data} from './images';
+import axios from 'axios';
 import './inspirations.scss';
 
 class InspirationsTool extends React.Component{
   state = {
     selected:null,
-    selected_option:null,
+    selected_option:Object.keys(data)[0],
     to_display_images:[],
-    images:[
-      {
-          src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-          thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
-          thumbnailWidth: 320,
-          thumbnailHeight: 174,
-          caption: "After Rain (Jeshu John - designerspics.com)"
-      },
-      {
-          src: "https://c6.staticflickr.com/9/8890/28897154101_a8f55be225_b.jpg",
-          thumbnail: "https://c6.staticflickr.com/9/8890/28897154101_a8f55be225_n.jpg",
-          thumbnailWidth: 320,
-          thumbnailHeight: 183,
-          caption: "37H (gratispgraphy.com)"
-      },
-      {
-          src: "https://c7.staticflickr.com/9/8106/28941228886_86d1450016_b.jpg",
-          thumbnail: "https://c7.staticflickr.com/9/8106/28941228886_86d1450016_n.jpg",
-          thumbnailWidth: 271,
-          thumbnailHeight: 320,
-          caption: "Orange Macro (Tom Eversley - isorepublic.com)"
-      },
-      {
-          src: "https://c6.staticflickr.com/9/8342/28897193381_800db6419e_b.jpg",
-          thumbnail: "https://c6.staticflickr.com/9/8342/28897193381_800db6419e_n.jpg",
-          thumbnailWidth: 320,
-          thumbnailHeight: 213,
-          caption: "201H (gratisography.com)"
-      },
-      {
-          src: "https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_b.jpg",
-          thumbnail: "https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_n.jpg",
-          thumbnailWidth: 320,
-          thumbnailHeight: 213,
-          caption: "Flower Interior Macro (Tom Eversley - isorepublic.com)"
-      },
-      {
-          src: "https://c1.staticflickr.com/9/8707/28868704912_cba5c6600e_b.jpg",
-          thumbnail: "https://c1.staticflickr.com/9/8707/28868704912_cba5c6600e_n.jpg",
-          thumbnailWidth: 320,
-          thumbnailHeight: 213,
-          caption: "Man on BMX (Tom Eversley - isorepublic.com)"
-      },
-      {
-          src: "https://c4.staticflickr.com/9/8578/28357117603_97a8233cf5_b.jpg",
-          thumbnail: "https://c4.staticflickr.com/9/8578/28357117603_97a8233cf5_n.jpg",
-          thumbnailWidth: 320,
-          thumbnailHeight: 213,
-          caption: "Ropeman - Thailand (Tom Eversley - isorepublic.com)"
-      },
-      {
-          src: "https://c1.staticflickr.com/9/8056/28354485944_148d6a5fc1_b.jpg",
-          thumbnail: "https://c1.staticflickr.com/9/8056/28354485944_148d6a5fc1_n.jpg",
-          thumbnailWidth: 257,
-          thumbnailHeight: 320,
-          caption: "A photo by 贝莉儿 NG. (unsplash.com)"
-      }
-  ]
+    search_modal:false,
+    search_keyword:''
   }
   componentDidMount(){
-    console.log(data['Minimalism'][0].urls)
+    // console.log(data[Object.keys(data)])
+    this.refineData(Object.keys(data)[0])
   }
 
   refineData = (key) => {
     const data_temp = data[key];
     let arr = data_temp.map((img)=>{
-      // let width = img.width.toString();
-      // let height = img.height.toString();
       return {
         src:img.urls.thumb,
         width:1,
         height:1
-        // width:parseInt(width.charAt(width.length-1))!== 0 ? parseInt(width.charAt(width.length-1))!== 0 : 1,
-        // height:parseInt(height.charAt(height.length-1)) !== 0 ? parseInt(height.charAt(height.length-1)) : 1
       }
     } )
-    console.log(arr);
     this.setState({to_display_images:arr})
+  }
+
+  onChange = (e) => {
+    this.setState({[e.target.name]:e.target.value})
+  }
+
+  search = async() => {
+    const url = `https://api.unsplash.com/search/photos?query=${this.state.search_keyword}&page=1&client_id=l19JIb6AQouQjLf49FjarlRonth-z8z2IOyMqstILio&per_page=300`;
+    const response = await axios.get(url)
+    if(response.status===200){
+      const results = response.data.results;
+      let arr = results.map((img)=>{
+        return {
+          src:img.urls.thumb,
+          width:1,
+          height:1
+        }
+      } )
+      this.setState({to_display_images:arr, search_modal:false, search_keyword:'', selected_option:'Search'})
+    }
+  }
+
+  renderSearchModal = () => {
+    return(
+      <Modal show={this.state.search_modal} onHide={()=>{this.setState({search_modal:false})}} centered>
+        <Modal.Header closeButton style={{borderBottom:0}}>
+          <Modal.Title>Search keyword</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <InputGroup className="mb-3">
+            <FormControl
+              placeholder="Type here..."
+              value={this.state.search_keyword}
+              onChange={this.onChange}
+              name="search_keyword"
+            />
+            <InputGroup.Append>
+              <Button variant="outline-secondary" onClick={this.search}>Button</Button>
+            </InputGroup.Append>
+          </InputGroup>
+        </Modal.Body>
+      </Modal>
+    )
   }
 
   render(){
     return(
       <Container id="inspirations">
+        {this.renderSearchModal()}
         <Question question={"Which images are you inspired by?"}></Question>
         <div className="options-container">
           <div></div>
@@ -105,6 +90,13 @@ class InspirationsTool extends React.Component{
               </div>
             ))
           }
+          <div className={`text-option-inactive'}`} onClick={()=>{
+            this.setState({search_modal:true})
+            // this.setState({selected_option:key});
+            // this.refineData(key);
+          }}>
+            <p>Search</p>
+          </div>
         </div>
         {
           this.state.selected_option && (

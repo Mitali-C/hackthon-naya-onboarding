@@ -3,6 +3,7 @@ import {FormControl, Dropdown, InputGroup} from 'react-bootstrap';
 import Cube from './cube/Cube';
 import {data} from './data';
 import open from '../../../assets/icons/open.png';
+import ref from '../../../assets/design/dimension/measure-app.png';
 import './standard-dimensions.scss';
 
 class StandardDimensions extends React.Component{
@@ -114,27 +115,16 @@ class StandardDimensions extends React.Component{
           )
         }
         {
-          this.props.type==='intermediate' && (
-            <>
-            <p>You can use the following app to calculate the exact dimensions of your space and then fill those calculated numbers here!</p>
-            <ul>
-              <li>
-                <a href="https://play.google.com/store/apps/details?id=com.grymala.photoruler&hl=en_IN&gl=US" target="_blank" rel="noopener noreferrer">For Android</a>
-              </li>
-              <li>
-                <a href="https://apps.apple.com/us/app/tape-measure/id1271546805" target="_blank" rel="noopener noreferrer">For Iphone</a>
-              </li>
-            </ul>
-            </>
-          )
-        }
-        {
           this.props.type === 'advanced' ? (
-            <div style={{display:'flex', justifyContent:'center'}}>
+            <div style={{display:'flex', justifyContent:'center', flexDirection:'column'}}>
               <a style={{display:'flex', alignItems:'center', flexDirection:'column'}} href="https://apps.apple.com/us/app/tape-measure/id1271546805" target="_blank" rel="noopener noreferrer">
                 <img src={open} alt="open link" style={{width:'4rem'}}></img>
                 <h6>Send link to mobile app</h6>
               </a>
+              <div style={{marginTop:'2rem', display:'flex', justifyContent:'center', flexDirection:'column', alignItems:'center'}}>
+                <h6>How it works?</h6>
+                <img src={ref} alt="app reference" style={{width:'20rem'}}></img>
+              </div>
             </div>
 
           ) : (

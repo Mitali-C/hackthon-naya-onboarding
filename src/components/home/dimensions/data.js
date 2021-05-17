@@ -8,15 +8,15 @@ const data = {
     },
     'Users come in with different levels of knowledge':{
       points:[
-        'In some cases the user knows he exact dimensions for the required piece, ut not always',
-        'When asked to directly input dimensions, ome users felt hat they needed more support than urrently offered on the platform',
+        'In some cases the user knows he exact dimensions for the required piece, but not always',
+        'When asked to directly input dimensions, some users felt that they needed more support than currently offered on the platform',
       ]
     },
     'An ideal process for providing dimension is':{
       points:[
         'Efficient for those who already know',
         'Accomplished along with support for those who want it interactive or fun',
-        'Able to support the "job to be done" proach, not fully reliant on categorizing product type'
+        'Able to support the "job to be done" approach, not fully reliant on categorizing product type'
       ]
     },
   }

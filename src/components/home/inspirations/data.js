@@ -1,3 +1,5 @@
+import ss1 from '../../../assets/design/inspiration/ss1.png';
+
 const data = {
   idea:{
     'Value for building a powerful visual mood board':{
@@ -21,7 +23,8 @@ const data = {
         'Create a beautiful moodboard in the process'
       ]
     }
-  }
+  },
+  design:[ss1]
 }
 
 export {data};

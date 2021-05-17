@@ -5,12 +5,13 @@ import left from '../../../assets/icons/left.png';
 import right from '../../../assets/icons/right.png';
 import './inspirations.scss';
 
-const progress = ['Idea', 'Implementation'];
+const progress = ['Idea', 'Design', 'Implementation'];
 
 class Inspirations extends React.Component{
   state = {
     selected_progress_item:'Idea',
-    idea_index:0
+    idea_index:0,
+    design_index:0
   }
 
   renderProgressBar = () => {
@@ -58,10 +59,34 @@ class Inspirations extends React.Component{
     )
   }
 
+  renderDesign = () => {
+    const designs = data['design'];
+    const {design_index} = this.state;
+    return(
+      <div className="design">
+        <div className="nav">
+          {
+            design_index > 0 && <img src={left} alt="left" onClick={()=>{this.setState({design_index:this.state.design_index-1})}}></img>
+          }
+        </div>
+        <div className="main">
+          <img src={designs[design_index]} alt="design" ></img>
+        </div>
+        <div className="nav">
+          {
+            design_index !== designs.length-1 && <img src={right} alt="right" onClick={()=>{this.setState({design_index:this.state.design_index+1})}}></img>
+          }
+        </div>
+      </div>
+    )
+  }
+
   renderData = () => {
     switch(this.state.selected_progress_item){
       case 'Idea':
         return this.renderIdea();
+      case 'Design':
+        return this.renderDesign();
       case 'Implementation':
         return <InspiritaionsTool></InspiritaionsTool>
       default:

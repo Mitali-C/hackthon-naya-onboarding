@@ -1,9 +1,12 @@
 #home{
   display: flex;
-  height: 100vh;
-  min-height: 80vh;
+  // height: 100vh;
+  min-height: 60vh;
+  height: fit-content;
   // height: auto;
   // align-items: center;
+    justify-content: center;
+    align-items: center;
   .navigator{
     flex: 1;
     height: 100%;
@@ -44,8 +47,12 @@
   .content{
     flex: 4;
     height: 100%;
-    background-color: #fff;
+    // background-color: #fff;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    min-height: 60vh;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
   }
 }

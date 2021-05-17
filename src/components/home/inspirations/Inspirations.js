@@ -5,7 +5,7 @@ import left from '../../../assets/icons/left.png';
 import right from '../../../assets/icons/right.png';
 import './inspirations.scss';
 
-const progress = ['Idea', 'Design', 'Implementation'];
+const progress = ['Idea', 'Implementation'];
 
 class Inspirations extends React.Component{
   state = {

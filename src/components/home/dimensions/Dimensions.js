@@ -5,7 +5,7 @@ import left from '../../../assets/icons/left.png';
 import right from '../../../assets/icons/right.png';
 import './dimensions.scss';
 
-const progress = ['Idea', 'Design', 'Implementation'];
+const progress = ['Idea', 'Implementation'];
 
 class Dimensions extends React.Component{
   state = {

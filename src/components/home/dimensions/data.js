@@ -1,3 +1,7 @@
+
+import ss1 from '../../../assets/design/dimension/ss1.png';
+import ss2 from '../../../assets/design/dimension/ss2.png';
+
 const data = {
   idea:{
     'Knowing dimensions is helpful':{
@@ -19,7 +23,8 @@ const data = {
         'Able to support the "job to be done" approach, not fully reliant on categorizing product type'
       ]
     },
-  }
+  },
+  design:[ss1, ss2]
 }
 
 export {data};

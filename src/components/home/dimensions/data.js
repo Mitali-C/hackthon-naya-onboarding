@@ -1,19 +1,24 @@
 const data = {
   idea:{
-    'Analyzing the current dimensions tool':{
+    'Knowing dimensions is helpful':{
       points:[
-        "Asks the user to directly input the dimensions.",
-        "Best case use of this approach - when user knows the exact dimensions for the required piece.",
-        "It doesn't include the case where the user is clueless about the dimensions."
+        "Information can be used for estimation tool",
+        "Additional starting point for designers or fabricators, who will need this information eventually"
       ]
     },
-    'Our solution':{
+    'Users come in with different levels of knowledge':{
       points:[
-        'Providing standard dimensions for specific furniture pieces.',
-        'Providing link to an app which would help meausre the dimensions.',
-        'Providing a visual representation of the the dimensions.'
+        'In some cases the user knows he exact dimensions for the required piece, ut not always',
+        'When asked to directly input dimensions, ome users felt hat they needed more support than urrently offered on the platform',
       ]
-    }
+    },
+    'An ideal process for providing dimension is':{
+      points:[
+        'Efficient for those who already know',
+        'Accomplished along with support for those who want it interactive or fun',
+        'Able to support the "job to be done" proach, not fully reliant on categorizing product type'
+      ]
+    },
   }
 }
 

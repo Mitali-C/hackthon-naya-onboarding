@@ -13,10 +13,10 @@ class App extends React.Component{
       <Router>
         <NavBar></NavBar>
         <Switch>
-          <Route exact path='/inspirations-tool'>
+          <Route exact path='/inspiration-tool'>
             <InspirationsTool />
           </Route>
-          <Route exact path='/dimensions-tool'>
+          <Route exact path='/dimension-tool'>
             <DimensionsTool />
           </Route>
           <Route

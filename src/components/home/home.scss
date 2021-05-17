@@ -1,6 +1,9 @@
 #home{
   display: flex;
   height: 100vh;
+  min-height: 80vh;
+  // height: auto;
+  // align-items: center;
   .navigator{
     flex: 1;
     height: 100%;

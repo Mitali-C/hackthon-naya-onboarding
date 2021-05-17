@@ -1,17 +1,24 @@
 const data = {
   idea:{
-    'Analyzing the current inpirations/moodboard tool':{
+    'Value for building a powerful visual mood board':{
       points:[
-        "Asks the user to directly input the dimensions.",
-        "Best case use of this approach - when user knows the exact dimensions for the required piece.",
-        "It doesn't include the case where the user is clueless about the dimensions."
+        "Helps the user be inspired by the process",
+        "Helps the user communicate an idea they have",
+        'Helps to create new ideas and connections',
+        'Leads to more developeddesign brief'
       ]
     },
-    'Our solution':{
+    'Users come in with different levels of knowledge':{
       points:[
-        'Providing standard dimensions for specific furniture pieces.',
-        'Providing link to an app which would help meausre the dimensions.',
-        'Providing a visual representation of the the dimensions.'
+        'Users have different levels of knowledge of the meaning behind he provided style words',
+        'Some have voiced interest in having more support with understanding'
+      ]
+    },
+    'Learning from images and words combined':{
+      points:[
+        'Combining the two creates an opportunity to learn about esign styles, cultures, and meaning of form words',
+        'Learning about design but also about what you like',
+        'Create a beautiful moodboard in the process'
       ]
     }
   }

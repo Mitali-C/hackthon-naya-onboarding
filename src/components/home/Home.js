@@ -11,10 +11,10 @@ const navs = [
     name:'Introduction'
   },
   {
-    name:'Dimensions Tool'
+    name:'Dimension Tool'
   },
   {
-    name:'Inspirations Tool'
+    name:'Inspiration Tool'
   },
 ]
 
@@ -47,9 +47,9 @@ class Home extends React.Component{
     switch(this.state.selected_slide){
       case 'Introduction':
         return<Introduction></Introduction>
-      case 'Dimensions Tool':
+      case 'Dimension Tool':
         return<Dimensions></Dimensions>
-      case 'Inspirations Tool':
+      case 'Inspiration Tool':
         return<Inspirations></Inspirations>
       default:
         return;

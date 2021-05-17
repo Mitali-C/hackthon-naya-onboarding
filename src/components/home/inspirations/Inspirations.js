@@ -3,6 +3,7 @@ import InspiritaionsTool from '../../inspirations-tool/InspirationsTool';
 import {data} from './data';
 import left from '../../../assets/icons/left.png';
 import right from '../../../assets/icons/right.png';
+import ImageZoom from 'react-medium-image-zoom';
 import './inspirations.scss';
 
 const progress = ['Idea', 'Design', 'Implementation'];
@@ -70,7 +71,20 @@ class Inspirations extends React.Component{
           }
         </div>
         <div className="main">
-          <img src={designs[design_index]} alt="design" ></img>
+          {/* <img src={designs[design_index]} alt="design" ></img> */}
+          <ImageZoom
+              image={{
+                src: designs[design_index],
+                alt: 'design',
+                className: 'img',
+                style: { width: 'inherit' }
+              }}
+              zoomImage={{
+                src: designs[design_index],
+                alt: 'img',
+              }}
+              zoomMargin={10}
+            />
         </div>
         <div className="nav">
           {
